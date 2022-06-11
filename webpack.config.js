@@ -1,5 +1,5 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const webpack = require('webpack')
 
 module.exports = {
@@ -18,13 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.(js|jsx)$/, 
+        exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
+          loader: "babel-loader"
         },
       },
       {
@@ -36,12 +33,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
-    })
-    // ,
-    // new webpack.ProvidePlugin({
-    //   $:"jquery",
-    //   jQuery:"jquery",
-    //   "window.jQuery":"jquery"
-    // })
-  ]
+    }),
+  ],
 };
