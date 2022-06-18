@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引出生命周期</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../src/react-components/react.development.js"></script>
+    <script src="../src/react-components//react-dom.development.js"></script>
+    <script src="../src/react-components//babel.min.js"></script>
+
+    <!-- text/babel -->
+    <script type="text/babel">
+        //创建组件
+        class Life extends React.Component {
+            state = {
+                opacity: 0.1
+            }
+            remove = () => {
+                //清除定时器
+                // clearInterval(this.timer)
+
+                //组件卸载
+                ReactDOM.unmountComponentAtNode(document.querySelector("#test"))
+            }
+
+
+            //组件挂载后执行  且只执行一次
+            componentDidMount() {
+                this.timer = setInterval(() => {
+                    let { opacity } = this.state
+                    opacity -= 0.1
+                    if (opacity <= 0) {
+                        opacity = 1
+                    }
+                    this.setState({ opacity })
+
+                }, 200)
+            }
+
+            //组件将要被卸载时调用
+            componentWillUnmount(){
+                  //清除定时器
+                  clearInterval(this.timer)
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2 style={{ opacity: this.state.opacity }}>学习React</h2>
+                        <button onClick={this.remove} >卸载组件</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Life />, document.querySelector("#test"))
+    </script>
+</body>
+
+</html>

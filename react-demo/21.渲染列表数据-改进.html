@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染列表数据-改进</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../src/react-components/react.development.js"></script>
+    <script src="../src/react-components//react-dom.development.js"></script>
+    <script src="../src/react-components//babel.min.js"></script>
+
+    <!-- text/babel -->
+    <script type="text/babel">
+
+        const users = [
+            { username: 'Jerry', age: 21, gender: 'male' },
+            { username: 'Tomy', age: 22, gender: 'male' },
+            { username: 'Lily', age: 19, gender: 'female' },
+            { username: 'Lucy', age: 20, gender: 'female' }
+        ]
+        //创建组件
+        class Index extends React.Component {
+
+            render() {
+                return (
+                    <div>
+                        {
+                            users.map((user, i) =>
+                                <User user={user} key={i} />
+                            )
+
+                        }
+                    </div>
+                )
+            }
+        }
+
+        class User extends React.Component {
+
+            render() {
+                //使用props
+                const { user } = this.props
+
+                return (
+                    <div>
+                        <div>姓名：{user.username}</div>
+                        <div>年龄：{user.age}</div>
+                        <div>性别：{user.gender}</div>
+                        <hr />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Index />, document.querySelector("#test"))
+    </script>
+</body>
+
+</html>
