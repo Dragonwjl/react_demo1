@@ -10,8 +10,7 @@ class App extends React.Component {
         status: "add",
         todoList: getData(),
         filter: "all",
-        search: '',
-        listNum: 0
+        search: ''
     }
 
     onkeydown = (e) => {
@@ -67,20 +66,14 @@ class App extends React.Component {
         this.setState(data)
         setData(data)
     }
-    listNum = (l)=>{
-        this.setState(
-            {
-                listNum :l
-            }
-        )
-    }
-    
+
+
 
     render() {
         return (
             <div className="todolist">
                 <Header onkeydown={this.onkeydown} status={this.state.status} />
-                <Table listNum={this.listNum} search={this.state.search} onDataChange={this.changeData} filter={this.state.filter} todoList={this.state.todoList} />
+                <Table search={this.state.search} onDataChange={this.changeData} filter={this.state.filter} todoList={this.state.todoList} />
                 <Footer onStatusChange={this.changeStatus} filter={this.state.filter} status={this.state.status} />
             </div>
         )
