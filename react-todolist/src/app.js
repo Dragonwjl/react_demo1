@@ -9,7 +9,8 @@ class App extends React.Component {
         status: "add",
         todoList: getLocalData(),
         filter: "all",
-        search: ''
+        search: '',
+        listNum: getLocalData().length
     }
 
     onkeydown = (e) => {
@@ -63,14 +64,19 @@ class App extends React.Component {
         setLocalData(data)
     }
 
+    changeListNum = (n) => {
+        this.setState({
+            listNum: (n > 0 ? n : 0)
+        })
+    }
 
 
     render() {
         return (
             <div className="todolist">
                 <Header onkeydown={this.onkeydown} status={this.state.status} />
-                <Table search={this.state.search} onDataChange={this.changeData} filter={this.state.filter} todoList={this.state.todoList} />
-                <Footer onStatusChange={this.changeStatus} filter={this.state.filter} status={this.state.status} />
+                <Table chanegListNum = {this.changeListNum}   listNum= {this.state.listNum} search={this.state.search} onDataChange={this.changeData} filter={this.state.filter} todoList={this.state.todoList} />
+                <Footer  listNum= {this.state.listNum} onStatusChange={this.changeStatus} filter={this.state.filter} status={this.state.status} />
             </div>
         )
     }
