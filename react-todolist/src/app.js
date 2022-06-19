@@ -1,21 +1,20 @@
-import { fill, filter } from "lodash";
 import React from "react";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Table from "./components/table";
-import { setData, getData } from "./utils"
+import { setLocalData, getLocalData } from "./utils"
 
 class App extends React.Component {
     state = {
         status: "add",
-        todoList: getData(),
+        todoList: getLocalData(),
         filter: "all",
         search: ''
     }
 
     onkeydown = (e) => {
         if (e.keyCode === 13 & this.state.status === "add") {
-            let data = getData();
+            let data = getLocalData();
             if (e.target.value != '') {
                 data.push({ title: e.target.value, done: false, id: data.length })
                 this.setState(
@@ -24,7 +23,7 @@ class App extends React.Component {
                     }
                 )
             }
-            setData(data);
+            setLocalData(data);
             e.target.value = ''
         }
         else if (e.keyCode === 13 && this.state.status === "search") {
@@ -36,9 +35,6 @@ class App extends React.Component {
         }
 
     }
-
-
-
 
 
     changeStatus = (value, type) => {
@@ -64,7 +60,7 @@ class App extends React.Component {
         let data = this.state.todoList
         data[i].done = !data[i].done
         this.setState(data)
-        setData(data)
+        setLocalData(data)
     }
 
 

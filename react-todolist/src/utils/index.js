@@ -1,5 +1,5 @@
 // 读取本地存储的数据
- export function getData() {
+ export function getLocalData() {
     let localData = localStorage.getItem("todolist");
     let result = []
     if (localData != null) {
@@ -9,7 +9,7 @@
 }
 
 //保存本地存储数据
-export function setData(data) {
+export function setLocalData(data) {
     localStorage.setItem("todolist", JSON.stringify(data));
 }
 
