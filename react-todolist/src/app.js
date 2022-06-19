@@ -2,20 +2,20 @@ import React from "react";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Table from "./components/table";
-import { setLocalData, getLocalData } from "./utils"
+import { getLocalStorageData, setLocalStorageData } from "./utils"
 
 class App extends React.Component {
     state = {
         status: "add",
-        todoList: getLocalData(),
+        todoList: getLocalStorageData(),
         filter: "all",
         search: '',
-        // listNum: getLocalData().length
+        listNum: getLocalStorageData().length
     }
 
     onkeydown = (e) => {
         if (e.keyCode === 13 & this.state.status === "add") {
-            let data = getLocalData();
+            let data = getLocalStorageData();
             if (e.target.value != '') {
                 data.push({ title: e.target.value, done: false, id: data.length })
                 this.setState(
@@ -24,7 +24,7 @@ class App extends React.Component {
                     }
                 )
             }
-            setLocalData(data);
+            setLocalStorageData(data);
             e.target.value = ''
         }
         else if (e.keyCode === 13 && this.state.status === "search") {
@@ -61,22 +61,22 @@ class App extends React.Component {
         let data = this.state.todoList
         data[i].done = !data[i].done
         this.setState(data)
-        setLocalData(data)
+        setLocalStorageData(data)
     }
 
-    // changeListNum = (n) => {
-    //     this.setState({
-    //         listNum: (n > 0 ? n : 0)
-    //     })
-    // }
+    changeListNum = (n) => {
+        this.setState({
+            listNum: (n > 0 ? n : 0)
+        })
+    }
 
 
     render() {
         return (
             <div className="todolist">
                 <Header onkeydown={this.onkeydown} status={this.state.status} />
-                <Table search={this.state.search} onDataChange={this.changeData} filter={this.state.filter} todoList={this.state.todoList} />
-                <Footer  onStatusChange={this.changeStatus} filter={this.state.filter} status={this.state.status} />
+                <Table chanegListNum = {this.changeListNum}   listNum= {this.state.listNum} search={this.state.search} onDataChange={this.changeData} filter={this.state.filter} todoList={this.state.todoList} />
+                <Footer  listNum= {this.state.listNum} onStatusChange={this.changeStatus} filter={this.state.filter} status={this.state.status} />
             </div>
         )
     }
