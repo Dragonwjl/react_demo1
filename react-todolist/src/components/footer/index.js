@@ -5,7 +5,7 @@ class Footer extends Component {
 
 
     render() {
-        const { status, onStatusChange ,filter,listNum} = this.props
+        const { status, onStatusChange ,filter} = this.props
     
         return (
             <footer className="clearfix">
@@ -14,7 +14,7 @@ class Footer extends Component {
                     <a title="Add New" onClick={() => onStatusChange("add","btn-left")} className={status === "add" ? "button add selected" : "button add"}></a>
                     <a title="Search" onClick={() => onStatusChange("search","btn-left")} className={status === "search" ? "button search selected" : "button search"}></a></div>
                 </div>
-                <div className="pull-left" id="items">{listNum} items left</div>
+                {/* <div className="pull-left" id="items">{listNum} items left</div> */}
                 <div className="pull-right">
                     <ul className="filters  clearfix">
                         <li><a onClick={()=>onStatusChange("all")} className= {filter ==="all" ?"all selected" :"all"}>All</a></li>

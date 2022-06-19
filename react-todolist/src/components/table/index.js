@@ -1,19 +1,19 @@
 import React, { Component } from "react"
 import "./index.css"
 class Table extends Component {
- datas
+//  datas
 
-componentDidUpdate(prevProps){
-    //添加判断条件防止出现递归更新
-    if (prevProps.listNum !== this.datas.length ) { 
+// componentDidUpdate(prevProps){
+//     //添加判断条件防止出现递归更新
+//     if (prevProps.listNum !== this.datas.length ) { 
 
-        this.props.chanegListNum( this.datas.length)
-      }
-}
+//         this.props.chanegListNum( this.datas.length)
+//       }
+// }
 
     render() {
         const { todoList, onDataChange, filter, search } = this.props
-        let data =this.datas =  todoList .filter((data) => {
+        let data=  todoList .filter((data) => {
             if (filter === "all") {
                 return data && data.title.includes(search)
             } else if (filter === "active") {
