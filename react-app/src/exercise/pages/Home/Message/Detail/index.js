@@ -12,15 +12,15 @@ export default class Detail extends Component {
 
     render() {
         // 从props中获取路由地址中传递的param参数
-        // const { id,title } = this.props.match.params
+        const { id,title } = this.props.match.params
 
         //从props中获取Search参数
         // const {search} = this.props.location
         // const {id,title} =qs.parse( search.slice(1))
 
         //从props中获取state参数
-        const { id, title } = this.props.location.state
-        console.log(this.props.location.state);
+        // const { id, title } = this.props.location.state
+        // console.log(this.props.location.state);
 
 
         const resultContent = this.state.detailData.find((Obj) => {

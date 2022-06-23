@@ -10,6 +10,12 @@ export default class Message extends Component {
             { id: "3", title: "我是3" }
         ]
     }
+    showReplace = (id, title) => {
+        this.props.history.replace(`/home/message/detail/${id}/${title}`)
+    }
+    showPush = (id, title) => {
+        this.props.history.push(`/home/message/detail/${id}/${title}`)
+    }
 
     render() {
         const { dataArr } = this.state
@@ -20,20 +26,22 @@ export default class Message extends Component {
                         return (
                             <li key={data.id}>
                                 {/* 向路由组件中传递param参数 */}
-                                {/* <Link to={`/home/message/detail/${data.id}/${data.title}`}>{data.title}</Link> */}
+                                <Link to={`/home/message/detail/${data.id}/${data.title}`}>{data.title}</Link>
+                                <button  onClick={() => this.showPush(data.id, data.title)}>Push查看</button>
+                                <button onClick={() => this.showReplace(data.id, data.title)}>Replace查看</button>
                                 {/*向路由组件中传递Search参数 */}
                                 {/* <Link to={`/home/message/detail/?id=${data.id}&title=${data.title}`}>{data.title}</Link> */}
                                 {/*向路由组件中传递state参数 */}
-                                <Link to={{ pathname: "/home/message/detail", state: { id: data.id, title: data.title } }}>{data.title}</Link>
+                                {/* <Link to={{ pathname: "/home/message/detail", state: { id: data.id, title: data.title } }}>{data.title}</Link> */}
                             </li>
                         )
                     })}
                 </ul>
                 <hr></hr>
                 {/* 声明接收param参数 */}
-                {/* <Route path="/home/message/detail/:id/:title" component={Detail} /> */}
+                <Route path="/home/message/detail/:id/:title" component={Detail} />
                 {/*Search和state参数无需声明接收 */}
-                <Route path="/home/message/detail" component={Detail} />
+                {/* <Route path="/home/message/detail" component={Detail} /> */}
 
             </div>
 
