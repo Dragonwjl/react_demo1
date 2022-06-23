@@ -5,6 +5,13 @@ import MyNavLink from "../../components/MyNavLink";
 import { Route } from "react-router-dom";
 
 export default class Home extends Component {
+
+    componentDidMount(){
+        setTimeout(()=>{
+            //编程式路由导航
+            this.props.history.push("/home/message")
+        },2000)
+    }
     render() {
         return (
             <div>
