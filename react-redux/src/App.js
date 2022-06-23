@@ -1,16 +1,9 @@
 import './App.css';
+import Count from './components/Count';
 
 function App() {
   return (
-    <div className="App">
-      <header >
-      
-      
-      </header>
-      <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-    </div>
+    <Count />
   );
 }
 
