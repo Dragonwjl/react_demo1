@@ -4,13 +4,33 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import store from './redux/store';
+import { Provider } from "react-redux"
 
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+// react-redux  provider的使用
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
-);
+)
+
+
+//使用react-redux后不再需要以下代码
+
+// store.subscribe(
+//   () => {
+//     root.render(
+//       <React.StrictMode>
+//         <App />
+//       </React.StrictMode>
+//     )
+//   }
+// )
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

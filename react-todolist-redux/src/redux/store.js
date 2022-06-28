@@ -1,13 +1,15 @@
 import { createStore, applyMiddleware, combineReducers } from "redux"
-import countReducer from "./reducers/count"
-import personReducer from "./reducers/person"
 import thunk from "redux-thunk"
 import { composeWithDevTools } from "redux-devtools-extension"
+import footerReducer from "./reducers/footer"
+import headerReducer from "./reducers/header"
+import tableReducer from "./reducers/table"
 
-//汇总所有的reducer
 const allReducers = combineReducers({
-    count: countReducer,
-    person: personReducer
+     header: headerReducer,
+     footer: footerReducer,
+     table: tableReducer
+
 })
 
 export default createStore(allReducers, composeWithDevTools(applyMiddleware(thunk)))
