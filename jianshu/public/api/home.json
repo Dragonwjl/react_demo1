@@ -1,0 +1,57 @@
+{
+	"success": true,
+	"data": {
+		"topicList": [
+			{
+				"id": 1,
+				"title": "社会热点",
+				"imgUrl": "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+			},
+			{
+				"id": 2,
+				"title": "手手绘",
+				"imgUrl": "//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+			}
+		],
+		"articleList": [
+			{
+				"id": 1,
+				"title": "胡歌12年后首谈车祸",
+				"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
+				"imgUrl": "https://upload.jianshu.io/admin_banners/web_images/5055/348f9e194f4062a17f587e2963b7feb0b0a5a982.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"
+			},
+			{
+				"id": 2,
+				"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
+				"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
+				"imgUrl": "https://img-blog.csdnimg.cn/1e8fed2164d94a9fa8db471f5d36f0bf.png?x-oss-process=image/resize,m_fixed,h_300,image/format,png"
+			},
+			{
+				"id": 3,
+				"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
+				"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
+				"imgUrl": "https://img-blog.csdnimg.cn/2202c89b6e50408d87973739946814ab.gif?x-oss-process=image/resize,m_fixed,h_300,image/format,png"
+			},
+			{
+				"id": 4,
+				"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
+				"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
+				"imgUrl": "https://img-blog.csdnimg.cn/5ea5f165caeb4b688ef75218cb667fd9.png?x-oss-process=image/resize,m_fixed,h_300,image/format,png"
+			}
+		],
+		"recommendList": [
+			{
+				"id": 1,
+				"imgUrl": "https://img0.baidu.com/it/u=2671659732,3670971398&fm=253&fmt=auto&app=138&f=JPEG?w=1280&h=418"
+			},
+			{
+				"id": 2,
+				"imgUrl": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F011376596321eba8012193a37a4796.png&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1659275396&t=5411949561ff1ec473d42e173ef036f0"
+			},
+			{
+				"id": 3,
+				"imgUrl": "https://img1.baidu.com/it/u=543222052,2222342620&fm=253&fmt=auto&app=138&f=JPEG?w=1435&h=500"
+			}
+		]
+	}
+}

@@ -1,0 +1,1 @@
+export const setSearchData = data => ({ type: "setSearchData", data })
