@@ -10,18 +10,12 @@ const App = () => {
   return (
     <div>
       {/* <Header/> */}
-    
-      {isLogin ? <Authenticated /> : <IndexScreen />}
-      <button onClick={() => setIsLogin(!isLogin)}> 是否显示登录</button>
+      {isLogin ? <Authenticated isLogin={isLogin} setIsLogin={setIsLogin} /> : <IndexScreen isLogin={isLogin} setIsLogin={setIsLogin} />}
     </div>
-
-
-
-
   );
 };
 
- const Header = styled.header`
+const Header = styled.header`
   background:url(${logo}) no-repeat center;
   padding: 50px 0;
   background-size:80px

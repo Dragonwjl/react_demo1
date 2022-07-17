@@ -2,13 +2,16 @@ import { Table } from "antd";
 import React from "react"
 import { User } from "./search-panel";
 import dayjs from 'dayjs'
+import { Link } from "react-router-dom";
+import Pin from '../../common/pin.jsx'
+import { useEditProject } from '../../utils/project.jsx'
 interface Project {
     id: string;
     name: string;
     personId: string;
     pin: boolean;
     organization: string,
-    created:number
+    created: number
 }
 interface ListProps {
     list: Project[],
@@ -16,14 +19,32 @@ interface ListProps {
 
 }
 const List = ({ list, users }: ListProps) => {
+    const { mutate } = useEditProject()
+    const pinProject = (id) => (pin) => mutate({ id, pin });
     return (
         <Table
             pagination={false}
             columns={[
                 {
+                    title: <Pin checked={true} disabled={true} />,
+                    render(value, project) {
+                        return (
+                            <Pin
+                                checked={project.pin}
+                                onCheckedChange={pinProject(project.id)}
+                            />
+                        );
+                    },
+                },
+                {
                     title: '名称',
                     dataIndex: 'name',
-                    sorter: (a, b) => a.name.localeCompare(b.name)
+                    sorter: (a, b) => a.name.localeCompare(b.name),
+                    render(value, project) {
+                        return (
+                            <Link to={String(project.id)}>{project.name}</Link>
+                        )
+                    }
                 },
                 {
                     title: '部门',
@@ -39,12 +60,12 @@ const List = ({ list, users }: ListProps) => {
                         )
 
                     }
-                },{
+                }, {
                     title: '创建时间',
-                    render(value,project){
-                        return(
+                    render(value, project) {
+                        return (
                             <span>
-                                {project.created ?dayjs(project.created).format('YYYY-MM-DD'):"无"}
+                                {project.created ? dayjs(project.created).format('YYYY-MM-DD') : "无"}
                             </span>
                         )
                     }
@@ -70,7 +91,7 @@ const List = ({ list, users }: ListProps) => {
         //             )
         //         }
         //     </tbody>
-    
+
     )
 }
 

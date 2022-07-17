@@ -1,28 +1,33 @@
 import React from "react";
-import { ReactComponent  as SoftwareLogo}   from './assets/software-logo.svg'
 import styled from '@emotion/styled'
 import { ProjectListScreen } from "../src/screens/project-list/index"
-import { Dropdown } from "antd";
-
-export default function Authenticated () {
+import ProjectScreen from '../src/screens/project/index'
+import { useDocumentTitle } from './utils/index'
+import { Route, Navigate, Routes } from 'react-router'
+import { BrowserRouter as Router } from 'react-router-dom'
+export default function Authenticated({ isLogin, setIsLogin }) {
+    useDocumentTitle("项目列表")
     return (
+
         <Container>
             <Header>
                 <HeaderLeft>
-                
-                    {/* <SoftwareLogo width={"18rem"} color={"rgb(38, 132, 255)"} /> */}
-                    
-                    <h2>logo</h2>
+                    <button type="link" onClick={() => window.location.href = window.location.origin}>logo</button>
                     <h2>项目</h2>
                     <h2>用户</h2>
                 </HeaderLeft>
                 <HeaderRight>
-                    <button >登出</button>
-                    {/* <Dropdown overlay={}></Dropdown> */}
+                    <button onClick={() => setIsLogin(!isLogin)} >登出</button>
                 </HeaderRight></Header>
 
             <Main>
-                <ProjectListScreen />
+                <Router>
+                    <Routes>
+                        <Route path={"/projects"} element={<ProjectListScreen />} />
+                        <Route path={"/projects/:projectId/*"} element={<ProjectScreen />} />
+                        <Route path="*" element={<Navigate to="/projects" replace />} />
+                    </Routes>
+                </Router>
             </Main>
         </Container>
     )
@@ -54,5 +59,4 @@ const HeaderRight = styled.div`
 `
 
 const Main = styled.div`
-    
 `

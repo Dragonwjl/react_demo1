@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input ,Button} from 'antd'
-const LoginScreen = () => {
+const LoginScreen = ({isLogin, setIsLogin}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +23,7 @@ const LoginScreen = () => {
                 <Input placeholder={"密码"} type="password" id={"password"} />
             </Form.Item>
             <Form.Item>
-            <Button htmlType={"submit"} type={"primary"}>登录</Button>
+            <Button htmlType={"submit"} type={"primary"} onClick={()=>setIsLogin(!isLogin)} >登录</Button>
             </Form.Item>
             
         </Form>
