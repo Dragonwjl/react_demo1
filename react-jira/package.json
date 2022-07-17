@@ -12,11 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "antd": "^4.21.6",
+    "dayjs": "^1.11.3",
     "jira-dev-tool": "^1.7.61",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router": "6",
+    "react-router-dom": "6"
   },
   "devDependencies": {
     "@chrissong/eslint-config-simo": "^0.0.8",
